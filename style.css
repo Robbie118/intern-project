@@ -1,0 +1,224 @@
+:root {
+    --bg-color: #0f172a;        /* Deep Dark Blue/Grey */
+    --card-bg: #1e293b;         /* Lighter Card Background */
+    --text-main: #f1f5f9;       /* White-ish text */
+    --text-muted: #94a3b8;      /* Grey text */
+    --accent: #38bdf8;          /* Sky Blue */
+    --accent-glow: rgba(56, 189, 248, 0.3);
+    --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+
+body { 
+    font-family: 'Outfit', sans-serif; 
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.7;
+    padding: 2rem;
+}
+
+/* Container */
+body > * { max-width: 1000px; margin: 0 auto; }
+
+/* Language Toggle */
+.lang-toggle {
+    position: absolute; top: 2rem; right: 2rem;
+    display: flex; gap: 0.8rem; z-index: 10;
+}
+.lang-toggle button {
+    background: transparent; 
+    border: 1px solid var(--text-muted); 
+    color: var(--text-muted);
+    padding: 0.5rem 1.2rem; 
+    border-radius: 50px; 
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600; 
+    transition: all 0.3s ease;
+}
+.lang-toggle button:hover { border-color: var(--accent); color: var(--accent); }
+.lang-toggle button.active { 
+    background: var(--gradient); 
+    border: none; 
+    color: white; 
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Header Section */
+header { 
+    text-align: center; 
+    padding: 6rem 1rem 1rem; 
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+h1 { 
+    font-size: clamp(2.5rem, 6vw, 4.5rem); 
+    font-weight: 700; 
+    margin-bottom: 1rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    display: inline-block;
+}
+
+header p { 
+    font-size: 1.25rem; 
+    color: var(--text-muted); 
+    max-width: 600px; 
+    margin: 0 auto;
+}
+
+/* Headings */
+/* 1. Adjust the Heading to float nicely above */
+h2 { 
+    font-size: 2rem; 
+    margin-bottom: 1.5rem; /* Increased slightly to match the card's internal spacing */
+    color: var(--text-main);
+    display: flex; 
+    align-items: center; 
+    gap: 1rem;
+}
+
+/* 2. Adjust the Card to "catch" the space */
+.about-card {
+    background: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 20px;
+    
+    /* Increased padding makes the box feel bigger and 'own' the space around it */
+    padding: 3rem 2.5rem; 
+    
+    margin-bottom: 5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 3. Ensure the text inside is relaxed (Line Height) */
+.about-card p {
+    font-size: 1.15rem; /* Slightly larger text fills the void better */
+    color: #cbd5e1;
+    margin-bottom: 1.5rem; /* More space between paragraphs */
+    line-height: 1.8; /* Relaxed reading flow */
+}
+
+.about-card p:last-child { margin-bottom: 0 !important; }
+
+
+/* Projects Grid - FIXED HEIGHTS */
+.projects-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 2rem; 
+    margin-bottom: 5rem; 
+}
+
+.project { 
+    background: var(--card-bg); 
+    border-radius: 20px; 
+    padding: 2.5rem; 
+    border: 1px solid #334155;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    
+    /* Flexbox for equal height and sticky buttons */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--accent);
+    box-shadow: 0 10px 40px -10px var(--accent-glow);
+}
+
+.project h3 { 
+    color: var(--accent); 
+    margin-bottom: 1rem; 
+    font-size: 1.5rem; 
+}
+
+.project ul { margin-left: 1.2rem; margin-bottom: 1rem; color: var(--text-muted); }
+.project p { margin-bottom: 1rem; color: #cbd5e1; }
+
+/* Buttons Pushed to Bottom */
+.github-btn {
+    display: inline-block; 
+    background: rgba(255,255,255,0.05);
+    color: white !important;
+    padding: 12px 24px; 
+    border-radius: 12px; 
+    text-decoration: none;
+    font-weight: 600; 
+    margin-top: auto; /* Pushes button to bottom */
+    align-self: flex-start;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.github-btn:hover { 
+    background: white; 
+    color: black !important; 
+}
+
+/* Skills Pills (Chips) */
+#skills ul { 
+    list-style: none; display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 4rem; 
+}
+#skills li { 
+    background: rgba(56, 189, 248, 0.1); 
+    color: var(--accent); 
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 0.6rem 1.2rem; 
+    border-radius: 50px; /* Fully rounded pills */
+    font-weight: 600; 
+    font-size: 0.95rem;
+    transition: 0.3s;
+    cursor: default;
+}
+#skills li:hover {
+    background: var(--accent);
+    color: #0f172a;
+    box-shadow: 0 0 15px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer { 
+    text-align: center; 
+    padding: 3rem; 
+    border-top: 1px solid #334155; 
+    color: var(--text-muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+
+/* Utilities */
+.lang { display: none; }
+.lang.active { display: block; animation: fadeIn 0.5s ease; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) { 
+    .lang-toggle { position: static; justify-content: center; margin-bottom: 2rem; }
+    h1 { font-size: 2.5rem; }
+    body { padding: 1rem; }
+}

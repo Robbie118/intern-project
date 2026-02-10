@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robbie Yang | 楊鈞弼 - Portfolio</title>
+    
+    <!-- Cool lightning bolt icon for browser tab -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <!-- Google Fonts: Outfit (Modern & Clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 引入外部 CSS -->
+    <link rel="stylesheet" href="style.css?v=2">     
+</head>
+<body>
+    <header>
+        <!-- Language Buttons -->
+        <div class="lang-toggle">
+            <button onclick="setLang('zh')" id="zh-btn" class="active">中文</button>
+            <button onclick="setLang('en')" id="en-btn">English</button>
+        </div>
+        
+        <h1>Robbie Yang 楊鈞弼</h1>
+        
+        <!-- Header Description -->
+        <p class="lang zh active">康橋國際學校 11年級 | CS50/USACO Coder | SQL Dev | Taipei Student</p>
+        <p class="lang en">Grade 11 Student @ KCIS | CS50 & USACO Coder | SQL Developer | Taipei</p>
+    </header>
+    
+    <section id="about">
+        <h2 class="lang zh active">關於我</h2>
+        <h2 class="lang en">About Me</h2>
+        
+        <!-- About Me Card -->
+        <div class="about-card">
+            <div class="lang zh active">
+                <p>實習期間：完成CS50作業（Tideman演算法）、USACO競賽問題（Stuck in a Rut）、SQL資料遮罩實戰。</p>
+                <p>我將遇到的問題都轉化成學習經驗—現在全部展示在這裡。</p>
+            </div>
+            <div class="lang en">
+                <p>During internship: I worked on CS50 Tideman algorithm, USACO competition problems, and SQL data masking.</p>
+                <p>I turn every problem into a learning experience. Here is my work.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <h2 class="lang zh active">專案與真實挑戰</h2>
+        <h2 class="lang en">Projects</h2>
+        
+        <div class="projects-grid">
+            
+            <!-- Project 1: CS50 -->
+            <div class="project">
+                <h3 class="lang zh active">CS50 Tideman 選舉系統</h3>
+                <h3 class="lang en">CS50 Tideman Voting System</h3>
+                
+                <div class="lang zh active">
+                    <p><strong>挑戰：</strong>這是一個模擬選舉投票的程式，一開始我完全看不懂怎麼判斷誰贏。技術名詞很多，邏輯也複雜。</p>
+                    <p><strong>過程：</strong>我花了很多時間反覆看題目說明，畫了很多圖才搞懂。原來是要比較每個候選人「頭對頭」的勝負，再排序決定最終贏家。</p>
+                    <p><strong>成果：</strong>寫出完整的投票系統程式，學會怎麼把複雜問題拆解成小步驟。</p>
+                </div>
+                <div class="lang en">
+                    <p><strong>Challenge:</strong> Tideman is a voting simulation program. The rules were confusing, and I didn't understand how to pick the winner at first.</p>
+                    <p><strong>Process:</strong> I spent a lot of time drawing diagrams to figure out the logic. I learned I had to compare candidates head-to-head to find the true winner.</p>
+                    <p><strong>Result:</strong> I built a working voting system and learned how to break a big problem into small steps.</p>
+                </div>
+
+                <a href="https://github.com/Robbie118/tideman/blob/main/tideman" target="_blank" class="github-btn">
+                    <span class="lang zh active">程式碼 (GitHub)</span>
+                    <span class="lang en">View Code (GitHub)</span>
+                </a>
+            </div>
+
+            <!-- Project 2: SQL -->
+            <div class="project">
+                <h3 class="lang zh active">SQL 資料去識別化 (Data Masking)</h3>
+                <h3 class="lang en">SQL Data Masking</h3>
+                
+                <div class="lang zh active">
+                    <p><strong>情境：</strong>實習時需匯出敏感資料拿來測試，但不能外洩個資。</p>
+                    <p><strong>實作：</strong>撰寫 T-SQL Script 進行批量資料修改：
+                        <ul>
+                            <li>使用 <code>UPDATE</code> 將所有 Email 統一遮罩為 <code>robbie666@fubon.com</code>。</li>
+                            <li>利用 <code>SUBSTRING</code> 與 <code>LEN</code> 動態將真實姓名中間字替換為 'X' (例如：王小明 → 王X明)。</li>
+                        </ul>
+                    </p>
+                    <p><strong>成果：</strong>做出安全的測試資料，開發團隊可以安心用，不會擔心個資外洩。</p>
+                </div>
+                <!-- Dad-Friendly English Version -->
+                <div class="lang en">
+                    <p><strong>Context:</strong> We needed real data to test the system, but we couldn't look at actual people's private information.</p>
+                    <p><strong>Implementation:</strong> I wrote a T-SQL script to "mask" the sensitive data while keeping it usable for the computer:
+                        <ul>
+                            <li>Used <code>UPDATE</code> to change all real emails to fake ones (like <code>robbie@fubon.com</code>) so the system still accepts them.</li>
+                            <li>Used <code>SUBSTRING</code> to hide names (e.g., changing "Robbie Yang" to "R****e Y**g").</li>
+                        </ul>
+                    </p>
+                    <p><strong>Result:</strong> The team could test safely with "fake" real data without leaking anyone's secrets.</p>
+                </div>
+            </div>
+
+            <!-- Project 3: USACO -->
+            <div class="project">
+                <h3 class="lang zh active">USACO 競賽 - Stuck in a Rut</h3>
+                <h3 class="lang en">USACO - Stuck in a Rut</h3>
+                
+                <div class="lang zh active">
+                    <p><strong>題目：</strong>模擬很多隻牛在草地上走，計算誰會因為踩到別人留下的「吃草痕跡」而停下來。</p>
+                    <p><strong>困難：</strong>我一開始只想「兩兩檢查會不會撞」，但忽略了連鎖反應：A擋B，但A先被C擋住，B就不會撞A。</p>
+                    <p><strong>突破：</strong>把所有可能的碰撞按時間排序，一個一個檢查誰真的會停下，解決了連鎖反應的邏輯問題。</p>
+                </div>
+                <!-- Updated O(N log N) Version -->
+                <div class="lang en">
+                    <p><strong>Problem:</strong>Simulate cows walking on grass. Some cows stop if they hit a path left by another cow.</p>
+                    <p><strong>Challenge:</strong> I missed the chain reactions. If Cow A blocks Cow B, but Cow A is stopped by Cow C first, then B shouldn't stop.</p>
+                    <p><strong>Solution:</strong> I sorted all the collisions by time and checked them one by one. This fixed the logic error.</p>
+                </div>
+            </div>
+
+            <!-- Project 4: Website -->
+            <div class="project">
+                <h3 class="lang zh active">打造這個作品集網站</h3>
+                <h3 class="lang en">Building This Portfolio</h3>
+                
+                <div class="lang zh active">
+                    <p><strong>困難：</strong>好久沒寫網頁了，CSS 怎麼控制版面完全忘光，前面花很多時間複習。</p>
+                    <p><strong>解法：</strong>看教學影片快速回溫，邊學邊做，做出你現在看到的成果。</p>
+                    <p><strong>收穫：</strong>重新掌握網頁開發技能，學會用 Grid 跟 Flexbox 做響應式版面。</p>
+                    <p><strong>HTML/CSS/JS</strong></p>
+                </div>
+                <div class="lang en">
+                    <p><strong>Challenge:</strong> I hadn't coded a website in a long time and forgot how to use CSS layouts.</p>
+                    <p><strong>Solution:</strong> I watched tutorials to refresh my memory and built this site step-by-step.</p>
+                    <p><strong>Gain:</strong> I relearned web development, especially Grid and Flexbox for mobile-friendly designs.</p>
+                    <p><strong>HTML/CSS/JS</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <h2 class="lang zh active">技能堆疊</h2>
+        <h2 class="lang en">Skill Stack</h2>
+        <ul>
+            <li>Python</li><li>C++</li><li>JavaScript</li>
+            <li>SQL (T-SQL)</li><li>Git/GitHub</li>
+            <li>VS Code</li>
+        </ul>
+    </section>
+    
+    <footer>
+        <p>📧 <a href="mailto:robbie.yang980811@gmail.com">robbie.yang980811@gmail.com</a> | 
+           <a href="https://github.com/Robbie118" target="_blank">GitHub</a></p>
+        <p>Made with ❤️ in Taipei, 2026</p>
+    </footer>
+
+    <!-- 引入外部 JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
